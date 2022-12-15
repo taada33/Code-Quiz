@@ -1,14 +1,18 @@
-body{
-    /* display:flex; */
-}
-
 header{
 
     text-align:center;
     margin-top: 20%;
 }
 
+.timerText{
+    text-align: end;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    
+}
+
 .questionBox{
+    vertical-align: top;
     text-align: center;
     margin-top: 20%;
 }

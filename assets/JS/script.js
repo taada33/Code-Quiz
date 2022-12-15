@@ -1,6 +1,11 @@
 let startButton = document.querySelector("#start");
 let headerEl = document.querySelector("header");
 
+let timerEl = document.createElement("h2");
+timerEl.setAttribute("class","timerText");
+document.body.appendChild(timerEl);
+timerEl.textContent = "";
+
 let questionDiv = document.createElement("div");
 questionDiv.setAttribute("style","display: none;");
 questionDiv.setAttribute("class","questionBox");
@@ -81,17 +86,53 @@ scoreDiv.setAttribute("style","display: none");
 let question = 1;
 console.log(question);
 
-answerLi1.addEventListener("click",() => {whatQuestion(); console.log(question);});
-answerLi2.addEventListener("click",() => {whatQuestion(); console.log(question);});
-answerLi3.addEventListener("click",() => {whatQuestion(); console.log(question);});
-answerLi4.addEventListener("click",() => {whatQuestion(); console.log(question);});
+answerLi1.addEventListener("click",(event) => {whatQuestion(); console.log(question);});
+answerLi2.addEventListener("click",(event) => {whatQuestion(); console.log(question);});
+answerLi3.addEventListener("click",(event) => {whatQuestion(); console.log(question);});
+answerLi4.addEventListener("click",(event) => {whatQuestion(); console.log(question);});
 
 startButton.addEventListener("click",() => {whatQuestion();});
-initialSubmit.addEventListener("click", () => {whatQuestion(); console.log(question)});
-goBack.addEventListener("click", () => {whatQuestion(); console.log(question)})
+initialSubmit.addEventListener("click", (event) => {whatQuestion(); console.log(question)});
+goBack.addEventListener("click", (event) => {whatQuestion(); console.log(question)})
+
+let timeLeft;
+let timeInterval;
+
+function countdown(){
+    timeLeft = 100;
+
+    let timeInterval = setInterval(function () {
+    
+    if (question === 7){
+        //end of quiz reached
+        timerEl.textContent = '';
+        clearInterval(timeInterval);
+
+    }else if(timeLeft > 1) {
+        timerEl.textContent ='Time: ' + timeLeft;
+        timeLeft--;
+
+    } else {
+        //run out of time
+        timerEl.textContent = '';
+        clearInterval(timeInterval);
+    }
+}, 1000);}
 
 function whatQuestion(){
+    // console.log(event.path[0]);
+    if(event.path[0].getAttribute("data-eval") === "true"){
+        lineBreak.setAttribute("style","display: block;")
+        answerEval.textContent = ("Correct!");
+    }else if(event.path[0].getAttribute("data-eval") === "false"){
+        lineBreak.setAttribute("style","display: block;")
+        answerEval.textContent = ("Wrong!")
+        timeLeft = timeLeft - 10;
+        timerEl.textContent = timeLeft + ' second remaining';
+    }
+
     if(question ===1){
+        countdown();
         firstQuestion();
     }else if(question ===2){
         secondQuestion();
@@ -102,7 +143,7 @@ function whatQuestion(){
     }else if(question === 5){
         fifthQuestion();   
     }else if(question === 6){
-        enterInitials();   
+        enterInitials();
     }else if(question === 7){
         highScores();  
     }else{
@@ -118,6 +159,9 @@ function mainMenu(){
 }
 
 function firstQuestion(){
+
+    
+
     questionOl.setAttribute("style","display: block;")
     headerEl.setAttribute("style","display: none;");
     questionDiv.setAttribute("style","display: block;");
@@ -212,8 +256,13 @@ function fifthQuestion(){
 }
 
 function enterInitials(){
+
+    lineBreak.setAttribute("style","display: none;");
+    answerEval.setAttribute("style","display: none;");
+
     questionEl.textContent = "All Done!";
-    finalScore.textContent = "your final score is ";
+    finalScore.textContent = "your final score is " + timeLeft;
+    finalScore.setAttribute("style","display: block");
 
     questionOl.setAttribute("style","display: none;")
     initialDiv.setAttribute("style","display: block");
@@ -224,19 +273,20 @@ function enterInitials(){
 
 function highScores(){
     questionEl.textContent = "High scores"
-    finalScore.setAttribute("style","display: none")
+    finalScore.setAttribute("style","display: none");
     initialDiv.setAttribute("style","display: none");
+
     scoreDiv.setAttribute("style","display: block");
     question = 0;
 }
 
-function questionLogic(){
-    console.log(event.target);
-    lineBreak.setAttribute("style","display: block;")
-    // if(this.getAttribute("data-eval") === "true"){
-    //     answerEval.textContent = ("Correct!");
-    // }else{
-    //     answerEval.textContent = ("Wrong!")
-    // }
+// function questionLogic(){
+//     console.log(event.target);
+//     lineBreak.setAttribute("style","display: block;")
+//     if(this.getAttribute("data-eval") === "true"){
+//         answerEval.textContent = ("Correct!");
+//     }else{
+//         answerEval.textContent = ("Wrong!")
+//     }
 
-}
+// }
