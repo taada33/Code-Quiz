@@ -1,0 +1,64 @@
+body{
+    /* display:flex; */
+}
+
+header{
+
+    text-align:center;
+    margin-top: 20%;
+}
+
+.questionBox{
+    text-align: center;
+    margin-top: 20%;
+}
+
+
+ul{
+    list-style: none;
+}
+
+ul li{
+    background: rgb(68, 35, 129);
+    margin: 5px;
+    padding: 5px;
+    color: white;
+    border-radius: 5px;
+    margin-left: 45%;
+    margin-right: 45%;
+}
+
+
+.initialBox{
+    text-align: center;
+}
+
+button{
+    background: rgb(68, 35, 129);
+    margin: 5px;
+    padding: 5px;
+    color: white;
+    border-radius: 5px;
+    margin-left: 45%;
+    margin-right: 45%;
+    border: none;
+}
+
+button:hover{
+    background-color: rgb(213, 64, 201);
+}
+
+ul li:hover{
+    background-color: rgb(213, 64, 201);
+}
+
+hr{
+    color: black;
+    /* width: 40%; */
+    margin-left: 30%;
+    margin-right:30%;
+}
+
+h3{
+    color: grey;
+}
