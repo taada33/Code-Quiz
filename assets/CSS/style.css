@@ -1,3 +1,6 @@
+
+
+
 header{
 
     text-align:center;
@@ -5,9 +8,7 @@ header{
 }
 
 .timerText{
-    text-align: end;
-    margin-right: 10px;
-    margin-bottom: 10px;
+    display: inline;
     
 }
 
@@ -28,8 +29,8 @@ ul li{
     padding: 5px;
     color: white;
     border-radius: 5px;
-    margin-left: 45%;
-    margin-right: 45%;
+    margin-left: 40%;
+    margin-right: 40%;
 }
 
 
@@ -43,8 +44,8 @@ button{
     padding: 5px;
     color: white;
     border-radius: 5px;
-    margin-left: 45%;
-    margin-right: 45%;
+    /* margin-left: 45%; */
+    /* margin-right: 45%; */
     border: none;
 }
 
@@ -65,4 +66,22 @@ hr{
 
 h3{
     color: grey;
+}
+
+.scoreLi{
+    background-color: rgb(157, 112, 255);
+    width:40%;
+    text-align: left;
+}
+
+.viewScoresButton{
+    margin-top: 20%;
+}
+
+.scoreBox li{
+    margin-left: 27%;
+}
+
+.scoreDivButtons{
+    margin-left: 40%;
 }
