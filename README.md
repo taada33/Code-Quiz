@@ -12,7 +12,7 @@ N/A
 
 ## Usage
 
-![Website Screenshot](screenshot.png)
+![Website Screenshot](/assets/images/screenshot.png)
 
 To view the completed website, please visit [https://taada33.github.io/Code-Quiz/](https://taada33.github.io/Code-Quiz/).
 
